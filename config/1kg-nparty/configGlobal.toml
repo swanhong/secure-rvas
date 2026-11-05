@@ -1,0 +1,46 @@
+# N=3 complete 1KG workflow: generation, preparation, secure run and reference.
+run_dir = "output/1kg-nparty"
+
+chromosomes = [22]
+phenotype_columns = ["phenotype1", "phenotype2"]
+ancestries = ["EUR"]
+num_cov = 16
+
+ckks = "PN14QP436S45"
+mpc_num_threads = 2
+data_bits = 60
+fractional_bits = 30
+probes = 30
+seed = 42
+
+binding_ipaddr = "127.0.0.1"
+
+[servers.party0]
+ipaddr = "127.0.0.1"
+ports = {party1 = "18100", party2 = "18102", party3 = "18104"}
+
+[servers.party1]
+ipaddr = "127.0.0.1"
+ports = {party2 = "18106", party3 = "18108"}
+
+[servers.party2]
+ipaddr = "127.0.0.1"
+ports = {party3 = "18110"}
+
+[servers.party3]
+ipaddr = "127.0.0.1"
+ports = {}
+
+[embedding]
+mode = "auto"
+dense_max = 64
+
+[embedding.hash]
+expansion = 2 # table size = expansion * M
+h = 7 # num of Hashes
+
+[embedding.cap]
+log_mu = 11
+epsilon = 0.1625
+floor = 4
+j = 11

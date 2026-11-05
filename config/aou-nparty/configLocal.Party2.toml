@@ -1,0 +1,8 @@
+shared_keys_path = "{run_dir}/keys/party2"
+local_num_threads = 2
+
+genotype_dir = "{run_dir}/prepared/{ancestry}/chr{chromosome}/P2/geno"
+phenotype_file = "{run_dir}/prepared/{ancestry}/chr{chromosome}/P2/pheno.txt"
+covariate_file = "{run_dir}/prepared/{ancestry}/chr{chromosome}/P2/cov.txt"
+genes_file = "{run_dir}/prepared/{ancestry}/chr{chromosome}/genes.txt"
+keys_file = "{run_dir}/prepared/{ancestry}/chr{chromosome}/P2/keys.tsv"

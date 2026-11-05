@@ -1,0 +1,28 @@
+prepared_cache_dir = "data/1kg/prepared"
+genotype = "data/1kg/generated/genotype/chr{chromosome}"
+gene_panel = "data/1kg/generated/gene_panel/chr{chromosome}.tsv"
+annotation = "data/1kg/generated/annotation/chr{chromosome}.tsv"
+phenotype = "data/1kg/generated/phenotype.csv"
+covariate = "data/1kg/generated/ancestry_pred.tsv"
+ancestry = "data/1kg/generated/ancestry_pred.tsv"
+
+phenotype_id_column = "IID"
+covariate_id_column = "research_id"
+covariate_column = "pca_features"
+ancestry_id_column = "research_id"
+ancestry_column = "ancestry_pred_other"
+masks = ["LoF=HC"]
+max_maf = 0.01
+samples_per_cohort = 0
+sample_seed = 42
+role_seed = 42
+shared_rate = 0.6
+plink2_bin = "plink2"
+
+# shared_rate applies before removing variants without local carriers.
+keep_zero_variants = false
+
+[gene_selection]
+mode = "random"
+per_chromosome = 100
+seed = 42

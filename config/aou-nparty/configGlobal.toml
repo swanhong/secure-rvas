@@ -1,0 +1,52 @@
+run_dir = "output/aou-nparty-eur-allchr"
+
+chromosomes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+phenotype_columns = [
+   "LDLC_final_mgdl_6sd_masked",
+   "HDLC_mgdl_6sd_masked",
+   "TotChol_corrected_mvp_explicit_duration_mgdl_6sd_masked",
+   "ln_Trig_6sd_masked",
+   "nonHDL_corrected_mvp_explicit_duration_mgdl_6sd_masked",
+]
+ancestries = ["EUR"]
+num_cov = 10
+
+ckks = "PN14QP436S45"
+mpc_num_threads = 2
+data_bits = 70
+fractional_bits = 40
+probes = 63
+seed = 42
+
+binding_ipaddr = "127.0.0.1"
+
+[servers.party0]
+ipaddr = "127.0.0.1"
+ports = {party1 = "22300", party2 = "22302", party3 = "22304"}
+
+[servers.party1]
+ipaddr = "127.0.0.1"
+ports = {party2 = "22306", party3 = "22308"}
+
+[servers.party2]
+ipaddr = "127.0.0.1"
+ports = {party3 = "22310"}
+
+[servers.party3]
+ipaddr = "127.0.0.1"
+ports = {}
+
+[embedding]
+mode = "auto"
+# Inclusive cap limit: M <= 64 uses Dense; M >= 128 uses Hash.
+dense_max = 64
+
+[embedding.hash]
+expansion = 2
+h = 7
+
+[embedding.cap]
+log_mu = 11
+epsilon = 0.1625
+floor = 4
+j = 11

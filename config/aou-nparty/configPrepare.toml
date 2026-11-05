@@ -1,0 +1,26 @@
+# Template: provide local, authorized inputs at the paths below before running prepare.
+prepared_cache_dir = "data/aou/prepared-np"
+genotype = "data/aou/generated/genotype/exome.chr{chromosome}"
+gene_panel = "data/aou/generated/gene_panel/chr{chromosome}.tsv"
+annotation = "data/aou/generated/annotation/chr{chromosome}.tsv"
+phenotype = "data/aou/generated/phenotype.csv"
+covariate = "data/aou/generated/covariate/{anc}_pca.eigenvec"
+ancestry = "data/aou/generated/ancestry_preds.tsv"
+
+phenotype_id_column = "person_id"
+covariate_id_column = "#IID"
+is_cov_single_column = false
+covariate_columns = ["PC1", "PC2", "PC3", "PC4", "PC5", "PC6", "PC7", "PC8", "PC9", "PC10"]
+ancestry_id_column = "research_id"
+ancestry_column = "ancestry_pred_other"
+masks = ["annotation=pLoF"]
+max_maf = 0.01
+samples_per_cohort = 0
+sample_seed = 42
+role_seed = 42
+shared_rate = 0.6
+plink2_bin = "plink2"
+keep_zero_variants = false
+
+[gene_selection]
+mode = "all"

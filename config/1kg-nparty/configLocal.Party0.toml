@@ -1,0 +1,2 @@
+shared_keys_path = "{run_dir}/keys/party0"
+local_num_threads = 2
